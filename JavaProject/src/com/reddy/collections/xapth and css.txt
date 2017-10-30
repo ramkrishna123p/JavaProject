@@ -1,0 +1,332 @@
+url-http://www.seleniumhq.org/
+HTML
+<a title="Selenium Projects" href="/projects/">Projects</a>
+Write xpath
+syntax for writing xpath
+//tagName[@attributeName='attributeValue']
+// - relative path and absolute path start with -/
+
+sample xpath for above example
+//a[@href='/projects/']
+//a[@title='Selenium Projects']
+here
+//  - relative path
+a   - tagname
+href -attributeName
+/projects/ - attributeValue
+
+
+CSS Useful Tips
+
+Attribute                    Symbol Used
+Using id                     #
+Using Class                  .
+Using Attribute              tagName[attributeName='AttributeValue']
+Using Multiple Attribute     tageNmae[attributeName1='AttributeValue1'][attributeName2='AttributeValue2']
+Using Contains               * symbol
+Using Start with             ^ symbol
+Using Ends with              $ symbol
+
+CSS for above xpath
+To convert xpath into css just copy the xpath
+i.e
+syntax for css
+tagName[attributeName='attributeValue']
+remove // and @ in below example for Xpath to convert into CSS
+
+xpath -//a[@href='/projects/']
+CSS Path - a[href='/projects/']
+xpath - //a[@title='Selenium Projects']
+CSS Path - a[title='Selenium Projects']
+
+if text is on the web page we can write xpath as
+syntax
+//tageName[contains(text(),'text on the webpage')]
+//a[contains(text(),'Projects')]
+
+HTML
+<li id="menu_documentation">
+  <a title="Technical references and guides" href="/docs/">Documentation</a>
+Write xpath in different way
+i will go one parent up i.e how we can go one parent up and write xpath
+//li[@id='menu_documentation']/a
+// - relative path
+/ - absolute path
+
+CSS for above xpath
+xpath - //li[@id='menu_documentation']/a
+CSS - li[id='menu_documentation']>a
+we write > when when we come from parent to down
+here to travesel down xpath - / we use for CSS >
+
+
+url-http://www.seleniumhq.org/
+HTML
+<div id="mBody">
+  <div id="sidebar">
+  <script type="text/javascript" src="/analytics.js"/>
+  <div id="mainContent">
+    <h2>What is Selenium?</h2>
+
+xpath for above html
+//h2[contains(text(),'What is Selenium?']
+//div[@id='mainContent']/h2
+//div[@id='mBody']/div[2]/h2
+
+//div[@id='mainContent']/h2 when u search for xpath
+three h2 tags gets selected
+output
+<h2>What is Selenium?</h2>
+<h2>Which part of Selenium is appropriate for me?</h2>
+<h2>Selenium Sponsors</h2>
+in  order to select first h2 tag here is the xpath
+//div[@id='mainContent']/h2[1] -in h2 square bracket mention index 1
+
+CSS for xpath
+xpath = //div[@id='mainContent']/h2
+When you have id and you want to write CSS
+for the above xpath
+#mainContent>h2
+# - represents id
+
+CSS for xpath
+xpath - //div[@id='mainContent']/h2[1]
+CSS path - #mainContent>:nth-child(1)
+when u want to write index for CSS follow 
+:nth-child(index) index starts from 1
+
+CSS for xpath
+Xpath - //div[@id='mBody']/div[2]/h2
+CSS path - #mBody>:nth-child(3)>:nth-child(1)
+
+css path for amazon.in
+https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=mobile
+CSS Path - #search-main-wrapper>div>:nth-child(3)>:nth-child(2)>div>:nth-child(4)>:nth-child(1)>div>ul>:nth-child(1)>div>:nth-child(2)>div>div>a>img
+
+HTML
+<input id="q" type="text" size="30" accesskey="s" name="q"/>
+XPATH
+//input[@id='q']
+//input[@name='q']
+
+CSS path
+#q
+input[name='q']
+
+HTML
+<input id="submit" type="submit" value="Go"/>
+xpath
+//input[@id='submit']
+ if we want to combine more than one attribute value
+//input[@id='submit' and @type='submit']
+
+CSS path
+xpath - //input[@id='submit' and @type='submit']
+CSS path for above xpath
+input[id='submit'][type='submit']
+
+HTML
+<table id="choice">
+  <tbody>
+   <tr>
+     <td style="border-right: 1px solid #CCCCCC">
+     <center>
+      <h3>Selenium WebDriver</h3>
+       <a href="/projects/webdriver/">
+        <a href="/projects/webdriver/">
+         </center>
+          <br/>
+
+XPATH
+//table[@id='choice']/tbody/td[1]/centre/h3
+//h3[contains(text(),'Selenium WebDriver')]
+
+CSS Path for above xpath
+#choice>tbody>tr>:nth-child(1)>center>h3
+table[id='choice']>tbody>tr>:nth-child(1)>center>h3
+
+url-http://automationpractice.com/index.php
+url-http://automationpractice.com/index.php?controller=authentication&back=my-account
+
+HTML
+<form id="login_form" class="box" method="post" action="http://automationpractice.com/index.php?controller=authentication">
+  <h3 class="page-subheading">Already registered?</h3>
+
+Already Registered
+
+CSS PATH
+#login_form>.page-subheading
+form[id='login_form']>.page-subheading
+#login_form>h3.page-subheading
+
+Email
+
+HTML
+form id="login_form" class="box" method="post" action="http://automationpractice.com/index.php?controller=authentication">
+   <h3 class="page-subheading">Already registered?</h3>
+   <div class="form_content clearfix">
+     <div class="form-group">
+       <label for="email">Email address</label>
+       <input id="email" class="is_required validate account_input form-control" type="text" value="" name="email" data-validate="isEmail"/>
+</div>
+
+CSS Path
+
+.is_required validate account_input form-control this is a compound class
+here there are four class 1.is_required 2.validate 3.account_input 4.form_control
+so when u write class name in CSS remove space between class and put .in place of spaces
+ex:.is_required.validate.account_input.form-control
+#email
+[name='email'].is_required.validate.account_input.form-control
+
+Password
+
+HTML
+
+
+
+
+CSS Path
+#passwd
+[name='passwd'][type='password'][data-validate='isPasswd']
+
+Xpath
+//input[@id='passwd']
+//form[@id='login_form']/div/div[2]/span/input
+//span/input
+
+
+Sign IN
+HTML
+
+
+
+
+
+CSS Path
+#SubmitLogin
+[name="SubmitLogin"][type="submit"]
+
+XPath
+//*[@id='SubmitLogin']
+
+forget your password
+HTML
+
+
+
+
+CSS Path
+.lost_password.form-group
+[title="Recover your forgotten password"]
+a[title^="Recover your"]
+a[title$="forgotten password"]
+a[title="Recover your forgotten password"]
+a[title*="Recover your forgotten password"]
+
+URL - www.facebook.com
+First Name
+HTML
+<input id="u_0_g" class="inputtext _58mg _5dba _2ph-" type="text" aria-label="First name" placeholder="" aria-required="1" name="firstname" data-type="text" aria-describedby="js_f"/>
+
+CSS Path
+input[name='firstname']
+input[class^="inputtext"][name="firstname"]
+
+SurName
+HTML
+<input id="u_0_i" class="inputtext _58mg _5dba _2ph-" type="text" aria-label="Surname" placeholder="" aria-required="1" name="lastname" data-type="text>
+
+CSS Path
+input[name='lastname']
+
+Mobile Number or EmailAddress
+HTML
+<input id="u_0_l" class="inputtext _58mg _5dba _2ph-" type="text" aria-label="Mobile number or email address" placeholder="" aria-required="1" name="reg_email__" data-type="text" role="button"/>
+
+CSS Path
+[aria-label="Mobile number or email address"] here for  css we can ignore tagname
+
+Password
+HTML
+<input id="u_0_s" class="inputtext _58mg _5dba _2ph-" type="password" aria-label="New password" placeholder="" aria-required="1" name="reg_passwd__" autocomplete="new-password" data-type="text"/>
+ 
+CSS Path
+[type="password"][aria-label="New password"]
+
+Birthday
+HTML
+<div class="_5k_5">
+ <span id="u_0_u" class="_5k_4" data-name="birthday_wrapper" data-type="selectors">
+  <span>
+   <select id="day" class="_5dba" title="Day" name="birthday_day" aria-label="Day">
+   <select id="month" class="_5dba" title="Month" name="birthday_month" aria-label="Month">
+   <select id="year" class="_5dba" title="Year" name="birthday_year" aria-label="Year">
+    </span>
+     </span>
+
+CSS Path
+Day
+#day
+[title="Day"][name="birthday_day"][aria-label="Day"]
+Month
+[title="Day"][name="birthday_day"][aria-label="Day"]+select
+Year
+[title="Day"][name="birthday_day"][aria-label="Day"]+select+select
+
+
+
+Why doo I need to provide my DOB
+HTML
+<a id="birthday-help" class="mlm _58ms" role="button" rel="async" title="Click for more information" ajaxify="/help/ajax/reg_birthday/" href="#">Why do I need to provide my date of birth?</a>
+
+CSS PATH
+[title$="more information"]
+
+Female And Male
+HTML
+FEMALE - <span class="_5k_2 _5dba">
+          <input id="u_0_3" type="radio" value="1" name="sex"/>
+            <label class="_58mt" for="u_0_3">Female</label>
+              </span>
+
+Male   <span class="_5k_2 _5dba">
+         <input id="u_0_4" type="radio" value="2" name="sex"/>
+           <label class="_58mt" for="u_0_4">Male</label>
+             </span>
+
+CSS PATH
+
+Female - span[data-name="gender_wrapper"]>:nth-child(1)>:nth-child(2)
+         span[data-name="gender_wrapper"]>:first-child
+
+Male   - span[data-name="gender_wrapper"]>:nth-child(2)>:nth-child(2)
+         span[data-name="gender_wrapper"]>:last-child
+
+
+Following Siblings and preceding siblings
+
+Following siblings means ex:from elder brother to younger brother
+Preceding siblings means from younger brother to elder brother
+
+url - www.facebook.com
+HTML
+   <select id="day" class="_5dba" title="Day" name="birthday_day" aria-label="Day">
+   <select id="month" class="_5dba" title="Month" name="birthday_month" aria-label="Month">
+   <select id="year" class="_5dba" title="Year" name="birthday_year" aria-label="Year"
+ 
+XPATH for followimg sibling
+//select[@id='day']/following-sibling::*"
+here * gives you the following siblings for day i.e month and year
+if you want to select particular following sibiling then
+//select[@id='day']/following-sibling::select[1] - it will select month
+//select[@id='day']/following-sibling::select[1] - it will select year
+
+XPATH for Preceding siblings
+//select[@id='year']/preceding-sibling::*"
+here * gives you the following siblings for day i.e month and day
+if you want to select particular following sibiling then
+//select[@id='year']/following-sibling::select[1] - it will select month
+//select[@id='year']/following-sibling::select[2] - it will select day
+
+
